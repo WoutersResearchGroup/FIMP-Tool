@@ -12,7 +12,7 @@ def main():
         """
         Masterplan Dashboard
         =====================
-        Based on the South African Furniture Industry Masterplan.
+        Based on the South African Furniture Industry Masterplan.\n
         Prepared for the South African Furniture Initiative (Not for official use).
         """
     )
