@@ -2,7 +2,7 @@
 Public repository of the prototype Python code related to research on an economic complexity based decision support tool for South African industrial policy masterplans. 
 
 ## Web-App
-The developed Furniture Industry Masterplan Tool can be accessed as a web application on Streamlit from: [https://](https://fimp-tool.streamlit.app/)
+The developed Furniture Industry Masterplan Tool can be accessed as a web application on Streamlit from: https://fimp-tool.streamlit.app
 
 The application features one Key Performance Indicator (KPI) and one Decision Support Indicator (DSI) for each key focus area (pillar) of the South African Furniture Industry Masterplan.
 
