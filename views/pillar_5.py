@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-# Ensure the file is included in the path
 from pathlib import Path
-
 
 def main():
     st.title("Pillar 5: Skills")
