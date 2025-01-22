@@ -16,7 +16,7 @@ def main():
         page.item("Pillar 4", views.pillar_4)
         page.item("Pillar 5", views.pillar_5)
         page.item("Methodology", views.methodology)
-        # Creeate a subheading for the year selection slider in the sidebar.
+        # Create a subheading for the year selection slider in the sidebar.
         st.subheader("Year Selection")
     page.show()
 
