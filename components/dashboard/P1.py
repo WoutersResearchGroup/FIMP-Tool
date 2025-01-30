@@ -21,16 +21,33 @@ class P1(Dashboard.Item):
                 mui.Typography("Pillar 1 KPIs: Furniture Imports and Domestic Demand")
 
             with mui.Box(sx={"flex": 1, "minHeight": 0}):
-                nivo.RadialBar(
+                nivo.Bar(
                     data=data,
-                    startAngle={10},
-                    endAngle={270},
-                    innerRadius={0.5},
-                    padAngle={0.1},
-                    cornerRadius={3},
+                    keys=["Domestic Demand in Millions of US Dollars", "Imports in Millions of US Dollars"],
+                    indexBy="id",
                     margin={"top": 40, "right": 80, "bottom": 80, "left": 80},
+                    padding=0.2,
+                    groupMode="grouped",
+                    colors=["#D8A5FF", "#CD43FB"],
+                    axisBottom={
+                        "tickSize": 5,
+                        "tickPadding": 5,
+                        "tickRotation": 0,
+                        "legend": "Year",
+                        "legendPosition": "middle",
+                        "legendOffset": 32
+                    },
+                    axisLeft={
+                        "tickSize": 5,
+                        "tickPadding": 5,
+                        "tickRotation": 0,
+                        "legend": "Value (Millions of US Dollars)",
+                        "legendPosition": "middle",
+                        "legendOffset": -40
+                    },
                     legends=[
                         {
+                            "dataFrom": "keys",
                             "anchor": "top-left",
                             "direction": "column",
                             "translateX": -50,
@@ -49,6 +66,5 @@ class P1(Dashboard.Item):
                                 }
                             ]
                         }
-                    ],
-                    colors=["#D8A5FF","#CD43FB"]
+                    ]
                 )
