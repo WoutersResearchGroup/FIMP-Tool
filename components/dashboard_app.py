@@ -21,7 +21,7 @@ def main():
     # Load and filter data for each KPI and convert to json for use in nivo charts (dashboard).
     df_P1_KPI = pd.read_csv("data/Pillar 1 KPI.csv")
     df_P1_KPI = pd.read_csv("data/Pillar 1 KPI.csv")
-    df_P1_KPI_year = df_P1_KPI[(df_P1_KPI['Year'] >= st.session_state.sliderOne[0]) & (df_P1_KPI['Year'] <= st.session_state.sliderOne[1])
+    df_P1_KPI_year = df_P1_KPI[(df_P1_KPI['Year'] >= st.session_state.sliderOne[0]) & (df_P1_KPI['Year'] <= st.session_state.sliderOne[1])]
     df_P1_KPI_json = [{"id": row["Year"],
                        "Domestic Demand in Millions of US Dollars": row["Apparent Consumption"],
                        "Imports in Millions of US Dollars": row["Import"]}
