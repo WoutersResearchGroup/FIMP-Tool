@@ -20,11 +20,12 @@ def main():
     st.session_state.sliderOne = st.sidebar.slider("Pillar 1-5: KPI", min_value=2010, max_value=2020, value=(2018, 2019))
     # Load and filter data for each KPI and convert to json for use in nivo charts (dashboard).
     df_P1_KPI = pd.read_csv("data/Pillar 1 KPI.csv")
-    df_P1_KPI_year = df_P1_KPI[(df_P1_KPI['Year'] >= st.session_state.sliderOne[0]) & (df_P1_KPI['Year'] <= st.session_state.sliderOne[1])]
-    df_P1_KPI_json = [{"id": row["Year"], "data": [
-                        {"x": "Domestic Demand in Millions of US Dollars", "y": row["Apparent Consumption"]},
-                        {"x": "Imports in Millions of US Dollars", "y": row["Import"]}
-                    ]} for _, row in df_P1_KPI_year.iterrows()]
+    df_P1_KPI = pd.read_csv("data/Pillar 1 KPI.csv")
+    df_P1_KPI_year = df_P1_KPI[(df_P1_KPI['Year'] >= st.session_state.sliderOne[0]) & (df_P1_KPI['Year'] <= st.session_state.sliderOne[1])
+    df_P1_KPI_json = [{"id": row["Year"],
+                       "Domestic Demand in Millions of US Dollars": row["Apparent Consumption"],
+                       "Imports in Millions of US Dollars": row["Import"]}
+                      for _, row in df_P1_KPI_year.iterrows()]
     df_P2_KPI = pd.read_csv("data/Pillar2_KPI.csv")
     df_P2_KPI_year = df_P2_KPI[(df_P2_KPI['TaxYear'] >= st.session_state.sliderOne[0]) & (df_P2_KPI['TaxYear'] <= st.session_state.sliderOne[1])]
     df_P2_KPI_json = [{"id": int(row["TaxYear"]), "Establishments": round(row["Establishments"]), "FTE": round(row["FTE"])} 
