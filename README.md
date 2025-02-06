@@ -10,7 +10,7 @@ The KPIs for each pillar are organised in a dashboard view while each DSI occupi
 
 ## Future Efforts
 - Update the tool with more recent data.
-- Expand the tool to encompass a full decision support system with a focus on data quality, scalability and reproducabiltiy.
+- Expand the tool to encompass a full decision support system with a focus on data quality, scalability and reproducibility.
 - Further stakeholder engagement and integation to determine the feasibility of solutions and facilitate solution implementation.
 - Application to other masterplans and industrial policies.
 
