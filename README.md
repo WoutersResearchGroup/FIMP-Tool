@@ -13,6 +13,7 @@ The KPIs for each pillar are organised in a dashboard view while each DSI occupi
 - Expand the tool to encompass a full decision support system with a focus on data quality, scalability and reproducibility.
 - Further stakeholder engagement and integation to determine the feasibility of solutions and facilitate solution implementation.
 - Application to other masterplans and industrial policies.
+- Upgrading the tool to an enterprise-level web application beyond a prototype (e.g. using Django).
 
 ## References
 The data sources used to inform and compute the metrics are included in the methodology view of the application.
