@@ -33,7 +33,7 @@ class P1(Dashboard.Item):
                         "tickSize": 5,
                         "tickPadding": 5,
                         "tickRotation": 0,
-                        "legend": "Year",
+                        #"legend": "Year",
                         "legendPosition": "middle",
                         "legendOffset": 32
                     },
@@ -41,7 +41,7 @@ class P1(Dashboard.Item):
                         "tickSize": 5,
                         "tickPadding": 5,
                         "tickRotation": 0,
-                        "legend": "Value (Millions of US Dollars)",
+                        "legend": "Value in Millions of US Dollars",
                         "legendPosition": "middle",
                         "legendOffset": -40
                     },
