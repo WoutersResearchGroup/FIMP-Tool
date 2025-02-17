@@ -2,7 +2,7 @@ import streamlit as st
 from pathlib import Path
 
 def main():
-    st.title("Methodology")
+   st.title("Methodology")
     st.header("Data")
     st.write("**Masterplan for the South African Furniture Industry:**")
     st.write(
