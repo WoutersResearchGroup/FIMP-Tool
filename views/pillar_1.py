@@ -3,35 +3,13 @@ from pathlib import Path
 import plotly.express as px
 import pandas as pd
 import numpy as np
+import plotly.express as px
 import plotly.graph_objects as go
 
 def main():
-    sliderP1DS = st.sidebar.slider("Pillar 1: Decision Support", min_value=2010, max_value=2020, value=2020)
-    
-    data_path = Path('data/Pillar1_DS.csv')
-    
-    if not data_path.exists():
-        st.error("Error: Data file 'Pillar1_DS.csv' not found. Please ensure the file is in the 'data' folder.")
-        return  # Stop execution if the file is missing
-
-    dfP1_DS = pd.read_csv(data_path)
-    
-    if dfP1_DS.empty:
-        st.error("Error: The data file is empty. Please check the file contents.")
-        return  # Stop execution if the file is empty
-
-    required_columns = {'t', 'density', 'importVal', 'k', 'rca', 'description'}
-    
-    if not required_columns.issubset(dfP1_DS.columns):
-        st.error("Error: Missing required columns in the dataset. Ensure the file contains the correct format.")
-        return  # Stop execution if columns are missing
-
-    dfP1_DS_year = dfP1_DS[dfP1_DS['t'] == sliderP1DS]
-
-    if dfP1_DS_year.empty:
-        st.warning(f"No data available for the selected year {sliderP1DS}. Try choosing a different year.")
-        return  # Stop execution if no data is available for the selected year
-
+    sliderP1DS = st.sidebar.slider("Pillar 1: Decision Support", min_value=2010, max_value=2020, value=(2020))
+    dfP1_DS = pd.read_csv('data/Pillar1_DS.csv')
+    dfP1_DS_year = dfP1_DS[(dfP1_DS['t'] == sliderP1DS)]
     median_density = dfP1_DS_year['density'].median()
     median_importVal = dfP1_DS_year['importVal'].median()
 
@@ -43,12 +21,12 @@ def main():
     st.subheader("DSI: What Furniture Products to Localise")
     st.write("The formulated decision support indicator is the quantity of imports of each furniture product versus how related (density) that product is to the South African economy.")
 
-    st.write("The median values of both axes are used to create four quadrants by which products can be compared. Where a higher density and higher import value is ideal (top-right quadrant).")
-    st.write("Filtered Data:", dfP1_DS_year)
+    st.write("The median values of both axis are used to create four quadrants by which products can be compared. Where a higher density and higher import value is ideal (top-right quadrant).")
+
     def Pillar1():
         # Create a scatter plot for Pillar 1's DSI.
-        fig = px.scatter(dfP1_DS_year, x='density', y='importVal', hover_data=['k', 'rca', 'description'],
-                         labels={'density': 'Relatedness Density', 'importVal': 'Import Value', "k": "HS Product Code", "description": "Description", "rca": "RCA"},
+        fig = px.scatter(dfP1_DS_year, x='density', y='importVal', hover_data=['k','rca', 'description'],
+                         labels={'density': 'Relatedness Density', 'importVal': 'Import Value', "k": "HS Product Code", "description": "Description", "rca":"RCA"},
                          title='Scatter Plot of Imports vs. Fit',
                          color_discrete_sequence=['purple'])
         # Add a vertical line at the median of `density`.
@@ -57,7 +35,7 @@ def main():
             x0=median_density, x1=median_density, y0=dfP1_DS_year['importVal'].min(), y1=dfP1_DS_year['importVal'].max(),
             line=dict(color="Black", width=2, dash="dash")
         )
-        # Add a horizontal line at the median of `importVal`.
+        # Add a horizontal line at the median of `pci`.
         fig.add_shape(
             type="line",
             x0=dfP1_DS_year['density'].min(), x1=dfP1_DS_year['density'].max(), y0=median_importVal, y1=median_importVal,
@@ -72,7 +50,6 @@ def main():
             legend_title='Category'
         )
         return fig
-
     fig = Pillar1()
     st.plotly_chart(fig)
 
