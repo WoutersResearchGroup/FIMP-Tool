@@ -38,7 +38,7 @@ def main():
     df_P1_KPI_year = df_P1_KPI[(df_P1_KPI['Year'] >= st.session_state.sliderOne[0]) & (df_P1_KPI['Year'] <= st.session_state.sliderOne[1])
     df_P1_KPI_json = [{"id": row["Year"],
                        "Domestic Demand in Millions of US Dollars": row["Apparent Consumption"],
-                       "Imports in Millions of US Dollars": row["Import"]}
+                       "Imports in Millions of US Dollars": row["Import"]}]
                       for _, row in df_P1_KPI_year.iterrows()]
     df_P2_KPI = pd.read_csv("data/Pillar2_KPI.csv")
     df_P2_KPI_year = df_P2_KPI[(df_P2_KPI['TaxYear'] >= st.session_state.sliderOne[0]) & (df_P2_KPI['TaxYear'] <= st.session_state.sliderOne[1])]
