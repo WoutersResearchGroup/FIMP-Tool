@@ -1,7 +1,6 @@
-#streamlit
+streamlit
 streamlit-elements==0.1
 pandas
 #plotly-express
 protobuf==3.13
 plotly==5.24.0
-streamlit==1.40.0
