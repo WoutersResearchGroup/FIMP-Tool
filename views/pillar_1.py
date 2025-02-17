@@ -44,7 +44,7 @@ def main():
     st.write("The formulated decision support indicator is the quantity of imports of each furniture product versus how related (density) that product is to the South African economy.")
 
     st.write("The median values of both axes are used to create four quadrants by which products can be compared. Where a higher density and higher import value is ideal (top-right quadrant).")
-
+    st.write("Filtered Data:", dfP1_DS_year)
     def Pillar1():
         # Create a scatter plot for Pillar 1's DSI.
         fig = px.scatter(dfP1_DS_year, x='density', y='importVal', hover_data=['k', 'rca', 'description'],
