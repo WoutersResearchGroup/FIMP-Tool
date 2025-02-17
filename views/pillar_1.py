@@ -9,6 +9,10 @@ import plotly.graph_objects as go
 def main():
     sliderP1DS = st.sidebar.slider("Pillar 1: Decision Support", min_value=2010, max_value=2020, value=(2020))
     dfP1_DS = pd.read_csv('data/Pillar1_DS.csv')
+    data_path = Path('data/Pillar1_DS.csv')
+    if not data_path.exists():
+        st.error("Error: Data file 'Pillar1_DS.csv' not found. Please ensure the file is in the 'data' folder.")
+        return  # Stop execution if the file is missing
     dfP1_DS_year = dfP1_DS[(dfP1_DS['t'] == sliderP1DS)]
     median_density = dfP1_DS_year['density'].median()
     median_importVal = dfP1_DS_year['importVal'].median()
